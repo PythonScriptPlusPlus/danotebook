@@ -1,6 +1,6 @@
-from operator import attrgetter
+#from operator import attrgetter
 from tkinter import *
-from tkinter import messagebox
+#from tkinter import messagebox
 
 class Info:
     def __init__(self,NameW,DateW,PhoneW,DiscW):
@@ -9,17 +9,22 @@ class Info:
         self.PhoneW = PhoneW
         self.DiscW = DiscW
     
+def aDd():
+    Person = Info(NameW, DateW, PhoneW, DiscW)
+    print(Person.NameW.get())
+    print(Person.DateW.get())
+    print(Person.PhoneW.get())
+    print(Person.DiscW.get())
 
-    
+read = 'test'
+tk = Tk()
 
 NameW = StringVar()
 DateW = StringVar()
 PhoneW = StringVar()
 DiscW = StringVar()
 
-read = 'test'
-tk = Tk()
-tk.title("Контактная книга")
+tk.title("dank notebook")
 with open('list.txt','r') as f:
     read = f.read()
     if read == '1':
