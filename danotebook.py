@@ -13,7 +13,7 @@ def aDd():
     Person = Info(NameW, DateW, PhoneW, DiscW)
     if read == 'list is clear':
         with open('list.py','w') as f:
-            f.write('class Info:\n   def __init__(self,NameW,DateW,PhoneW,DiscW):\n      self.NameW = NameW\n      self.DateW = DateW\n      self.PhoneW = PhoneW\n      self.DiscW = DiscW')            
+            f.write('class Info:\n    def __init__(self,NameW,DateW,PhoneW,DiscW):\n        self.NameW = NameW\n        self.DateW = DateW\n        self.PhoneW = PhoneW\n        self.DiscW = DiscW')            
 
 read = 'test'
 tk = Tk()
@@ -26,7 +26,7 @@ DiscW = StringVar()
 tk.title("dank notebook")
 with open('list.py','r') as f:
     read = f.read()
-    if read == '1' or read == 'class Info:\n   def __init__(self,NameW,DateW,PhoneW,DiscW):\n      self.NameW = NameW\n      self.DateW = DateW\n      self.PhoneW = PhoneW\n      self.DiscW = DiscW':
+    if read == '1' or read == 'class Info:\n    def __init__(self,NameW,DateW,PhoneW,DiscW):\n        self.NameW = NameW\n        self.DateW = DateW\n        self.PhoneW = PhoneW\n        self.DiscW = DiscW':
         read = 'list is clear'
 
 List = Frame(tk, bg = 'black', bd = 1)
