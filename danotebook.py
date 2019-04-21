@@ -2,20 +2,37 @@
 from tkinter import *
 #from tkinter import messagebox
 
+def check():
+    with open('list.txt','a') as f:
+        pass
+    with open('list.txt','r') as f:
+        read = f.read()
+        if read == '' or read == 'list is clear':
+            read = 'list is clear'
+            return read
+'''
 class Info:
     def __init__(self,NameW,DateW,PhoneW,DiscW):
         self.NameW = NameW
         self.DateW = DateW
         self.PhoneW = PhoneW
         self.DiscW = DiscW
-    
-def aDd():
-    Person = Info(NameW, DateW, PhoneW, DiscW)
-    if read == 'list is clear':
-        with open('list.py','w') as f:
-            f.write('class Info:\n    def __init__(self,NameW,DateW,PhoneW,DiscW):\n        self.NameW = NameW\n        self.DateW = DateW\n        self.PhoneW = PhoneW\n        self.DiscW = DiscW')            
+'''
 
-read = 'test'
+def aDd(name):
+    global NameW
+    global DateW
+    global PhoneW
+    global DiscW
+    
+    if check() == 'list is clear':
+        with open('list.txt','w') as f:
+            f.write(str(name)+' = Info('+NameW.get()+',' +DateW.get()+','+ PhoneW.get()+',' +DiscW.get()+')')
+    else:
+        with open('list.txt','a') as f:
+            f.write(str(name)+' = Info('+NameW.get()+',' +DateW.get()+','+ PhoneW.get()+',' +DiscW.get()+')')
+
+read = 'list is clear'
 tk = Tk()
 
 NameW = StringVar()
@@ -24,10 +41,8 @@ PhoneW = StringVar()
 DiscW = StringVar()
 
 tk.title("dank notebook")
-with open('list.py','r') as f:
-    read = f.read()
-    if read == '1' or read == 'class Info:\n    def __init__(self,NameW,DateW,PhoneW,DiscW):\n        self.NameW = NameW\n        self.DateW = DateW\n        self.PhoneW = PhoneW\n        self.DiscW = DiscW':
-        read = 'list is clear'
+
+check()
 
 List = Frame(tk, bg = 'black', bd = 1)
 addF = Frame(tk, bg = 'black', bd = 1)
@@ -62,12 +77,12 @@ Phone = Entry(phone, bg = 'grey', fg = 'black', width = 20, textvariable = Phone
 discPhone = Label(phone, text = "phone number", width = 21)
 
 Disc = Entry(dis2, bg = 'grey', fg = 'black', width = 41, textvariable = DiscW)
-discDisc = Label(dis1, text = "discription", width = 21)
+discDisc = Label(dis1, text = "description", width = 21)
 
     
 mod = Button(modF, text = 'mod', width = 20)
 delete = Button(delF, text = 'delete', width = 21)
-add = Button(addF, text = 'add', width = 17, command = aDd)
+add = Button(addF, text = 'add', width = 17, command = aDd(NameW))
 
 lab.pack()
 pic.grid(row = 2, column = 3, rowspan = 5)
